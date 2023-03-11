@@ -1,68 +1,42 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-  
-  @override
-  State<Home> createState() => HomeState();
-}
+import 'package:led_cube_controller/src/components/connect-button.dart';
 
 // ====================================================== //
-class HomeState extends State<Home> {
-  final ButtonStyle bStyle = ElevatedButton.styleFrom(
-      backgroundColor: Color(0xffc69b7b), elevation: 1000, shadowColor: Colors.black, minimumSize: Size(50.0, 50.0));
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xff3a3845),
-        body: Center(
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Text(
-              'Led Cube\nController',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Color(0xfff7ccac),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
-                  shadows: const <Shadow>[
-                    Shadow(
-                        color: Color(0xff000000),
-                        offset: Offset(0.0, 5.0),
-                        blurRadius: 5.0)
-                  ]),
+      // backgroundColor: Theme.of(context).primaryColor,
+      body: Center(
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        // ignore: prefer_const_literals_to_create_immutables
+        children: <Widget>[
+          Text(
+            'Led Cube\nController',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Color(0xfff7ccac),
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              shadows: const <Shadow>[
+                Shadow(
+                  color: Color(0xff000000),
+                  offset: Offset(0.0, 5.0),
+                  blurRadius: 5.0)
+              ]
             ),
-            Image(image: AssetImage("lib/src/assets/cube.png")),
-            SizedBox(
-              width: 200,
-              height: 50,
-              child: ElevatedButton(
-                style: bStyle,
-                onPressed: () {
-                  // Navigator.push(context, MaterialPageRoute(builder: (context) => After()));
-                  print("oi");
-                },
-                child: Text(
-                  "Connect",
-                  style: TextStyle(color: Color(0xff3a3845)),
-                )),
-            )
+          ),
+
+          Image(image: AssetImage("lib/src/assets/cube.png")),
             
-          ],
-        )));
-  }
-}
-
-class After extends StatelessWidget {
-  const After({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.black,
+          ConnectButton(b_text: 'Connect')
+        ],
+        )
+      )
     );
   }
 }
