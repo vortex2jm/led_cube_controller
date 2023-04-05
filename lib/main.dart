@@ -16,7 +16,19 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xff3a3845) 
+        scaffoldBackgroundColor: const Color(0xff3a3845),
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color(0xff826F66)
+            )
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color(0xfff7ccac)
+            )
+          )
+        ) 
       ),
       home: Home(),
     );
