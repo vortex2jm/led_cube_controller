@@ -1,13 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-
-class InputField extends StatefulWidget {
-  const InputField({super.key});
+//Component===============================================//
+class InputField extends StatefulWidget {  
+  
+  final double width, height;
+  const InputField({super.key, required this.width, required this.height});
 
   @override
   State<InputField> createState() => InputFieldState();
 }
 
+//State==================================================//
 class InputFieldState extends State<InputField> {
   late TextEditingController _controller;
 
@@ -25,32 +28,24 @@ class InputFieldState extends State<InputField> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: TextField(
-          controller: _controller,
-          onSubmitted: (String value) async {
-            await showDialog<void>(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                  title: const Text('Thanks!'),
-                  content: Text(
-                      'You typed "$value", which has length ${value.characters.length}.'),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text('OK'),
-                    ),
-                  ],
-                );
-              },
-            );
-          },
+    return SizedBox(
+      width: widget.width,
+      height: widget.height,
+      child: TextField(
+        controller: _controller,
+        textAlign: TextAlign.center,
+        cursorColor: Color(0xffc69b7b),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: "IP",  // Calocar label como variável
+          labelStyle: TextStyle(
+            color: Color(0xffc69b7b), 
+          ),
         ),
-      ),
+        style: TextStyle(
+          color: Color(0xffc69b7b)
+        ),
+      )
     );
   }
 }
