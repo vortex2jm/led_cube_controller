@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/connect-button.dart';
+import 'package:led_cube_controller/src/components/button.dart';
 
 // ====================================================== //
 class Home extends StatelessWidget {
@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
 
           Image(image: AssetImage("lib/src/assets/cube.png")),
             
-          ConnectButton(b_text: 'Connect')
+          ConnectButton(b_text: 'Connect', width: 200, height: 50,)
         ],
         )
       )
