@@ -30,10 +30,8 @@ class Home extends StatelessWidget {
               ]
             ),
           ),
-
           Image(image: AssetImage("lib/src/assets/cube.png")),
-            
-          ConnectButton(b_text: 'Connect', width: 200, height: 50,)
+          ConnectButton(b_text: 'Start', width: 200, height: 50,)
         ],
         )
       )
