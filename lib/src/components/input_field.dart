@@ -5,6 +5,7 @@ class InputField extends StatefulWidget {
   
   final double width, height;
   const InputField({super.key, required this.width, required this.height});
+  // final Function callback;
 
   @override
   State<InputField> createState() => InputFieldState();
@@ -26,12 +27,27 @@ class InputFieldState extends State<InputField> {
     super.dispose();
   }
 
+  // ====================================
+  // Colocar callback pra retornar o valor do input
+  // Desmodularizar o código para colocar o botao e o input no mesmo esquema
+
+  String textContent = ""; 
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.width,
       height: widget.height,
       child: TextField(
+        // onSubmitted: (text) {
+        //   setState(() {
+        //     print(text);
+        //   });
+        // },
+        onChanged: (text) {
+          textContent = text;
+          print(text);
+        },
         controller: _controller,
         textAlign: TextAlign.center,
         cursorColor: Color(0xffc69b7b),

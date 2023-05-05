@@ -5,11 +5,11 @@ import 'package:led_cube_controller/src/pages/connect.dart';
 // ================================================== //
 class ConnectButton extends StatefulWidget {
   
-  final String b_text;
+  final String bText;
   final double width, height;
   const ConnectButton({
     super.key,
-    required this.b_text,
+    required this.bText,
     required this.width,
     required this.height
     });
@@ -37,7 +37,7 @@ class _ButtonState extends State<ConnectButton> {
           // print("oi");
         },
         child: Text(
-          widget.b_text,
+          widget.bText,
           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
         )
       ),

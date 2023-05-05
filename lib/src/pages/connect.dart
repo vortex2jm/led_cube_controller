@@ -6,6 +6,8 @@ import '../components/input_field.dart';
 class Connect extends StatelessWidget {
   const Connect({super.key});
   
+  final String oi = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +18,7 @@ class Connect extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const <Widget>[
               InputField(width: 400, height: 50,),
-              ConnectButton(b_text: "Connect", width: 200, height: 50),
+              ConnectButton(bText: "Connect", width: 200, height: 50),
             ],
           ),
         ),
