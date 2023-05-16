@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:led_cube_controller/src/components/colors.dart';
 import 'package:led_cube_controller/src/pages/home.dart';
 
 main() {
@@ -16,16 +17,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: _title,
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xff3a3845),
+        scaffoldBackgroundColor: ColorsPalette.primary,
         inputDecorationTheme: InputDecorationTheme(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xff826F66)
+              color: ColorsPalette.details
             )
           ),
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xfff7ccac)
+              color: ColorsPalette.textColor
             )
           )
         ) 
