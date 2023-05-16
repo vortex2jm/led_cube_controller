@@ -1,46 +1,45 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/pages/connect.dart';
+import 'package:led_cube_controller/src/components/colors.dart';
 
 // ================================================== //
-class ConnectButton extends StatefulWidget {
+class ConnectButton extends StatelessWidget {
   
   final String bText;
   final double width, height;
-  const ConnectButton({
+  final Function callback;
+  
+  ConnectButton({
     super.key,
     required this.bText,
     required this.width,
-    required this.height
-    });
+    required this.height,
+    required this.callback
+  });
 
-  @override
-  State<ConnectButton> createState() => _ButtonState();
-}
-
-// ================================================== //
-class _ButtonState extends State<ConnectButton> {
-  
   final ButtonStyle bStyle = ElevatedButton.styleFrom(
-    backgroundColor: Color(0xffc69b7b), elevation: 1000, shadowColor: Colors.black, minimumSize: Size(50.0, 50.0));
+    backgroundColor: ColorsPalette.secondary, 
+    elevation: 1000, 
+    shadowColor: ColorsPalette.shadows, 
+    minimumSize: Size(50.0, 50.0)
+  );
 
   @override
   Widget build(BuildContext context) {
     return 
     SizedBox(
-      width: widget.width,
-      height: widget.height,
+      width: width,
+      height: height,
       child: ElevatedButton(
         style: bStyle,
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Connect()));
-          // print("oi");
+          callback();
         },
         child: Text(
-          widget.bText,
+          bText,
           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
         )
-      ),
+      )
     );
   }
 }
