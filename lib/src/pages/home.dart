@@ -1,37 +1,48 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:led_cube_controller/src/components/button.dart';
+import 'package:led_cube_controller/src/components/colors.dart';
+import 'package:led_cube_controller/src/pages/connect.dart';
 
 // ====================================================== //
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  
+  void pageRoute(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Connect()));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        // ignore: prefer_const_literals_to_create_immutables
         children: <Widget>[
           Text(
             'Led Cube\nController',
             textAlign: TextAlign.center,
             style: TextStyle(
-              color: Color(0xfff7ccac),
+              color: ColorsPalette.textColor,
               fontWeight: FontWeight.bold,
               fontSize: 30,
               shadows: const <Shadow>[
                 Shadow(
-                  color: Color(0xff000000),
+                  color: ColorsPalette.shadows,
                   offset: Offset(0.0, 5.0),
                   blurRadius: 5.0)
               ]
             ),
           ),
           Image(image: AssetImage("lib/src/assets/cube.png")),
-          ConnectButton(bText: 'Start', width: 200, height: 50,)
+          ConnectButton(bText: 'Start', width: 200, height: 50, callback: pageRoute)
         ],
         )
       )

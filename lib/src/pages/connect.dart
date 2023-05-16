@@ -1,12 +1,29 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:led_cube_controller/src/components/button.dart';
+import 'package:led_cube_controller/src/pages/effects.dart';
 import '../components/input_field.dart';
 
-class Connect extends StatelessWidget {
+class Connect extends StatefulWidget {
   const Connect({super.key});
-  
-  final String oi = "";
+
+  @override
+  State<Connect> createState() => _ConnectState();
+}
+
+class _ConnectState extends State<Connect> {
+
+  String ip = "";
+
+  void setIp(String value){
+    setState(() {
+      ip = value;
+    });
+  }
+
+  void pageRoute(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Effects(ipState: ip)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +33,9 @@ class Connect extends StatelessWidget {
           height: 200, 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const <Widget>[
-              InputField(width: 400, height: 50,),
-              ConnectButton(bText: "Connect", width: 200, height: 50),
+            children: <Widget>[
+              InputField(width: 400, height: 50, label: "IP",callback: setIp),
+              ConnectButton(bText: "Connect", width: 200, height: 50, callback: pageRoute),
             ],
           ),
         ),
