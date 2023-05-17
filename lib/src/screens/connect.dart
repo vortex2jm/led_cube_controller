@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/button.dart';
-import 'package:led_cube_controller/src/pages/effects.dart';
-import '../components/input_field.dart';
+import 'package:led_cube_controller/src/widgets/button.dart';
+import 'package:led_cube_controller/src/screens/effects.dart';
+import '../widgets/input_field.dart';
 
 class Connect extends StatefulWidget {
   const Connect({super.key});
@@ -13,7 +13,13 @@ class Connect extends StatefulWidget {
 
 class _ConnectState extends State<Connect> {
 
-  String ip = "";
+  late String ip;
+
+  @override
+  void initState(){
+    super.initState();
+    ip = "";
+  }
 
   void setIp(String value){
     setState(() {
@@ -35,7 +41,7 @@ class _ConnectState extends State<Connect> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               InputField(width: 400, height: 50, label: "IP",callback: setIp),
-              ConnectButton(bText: "Connect", width: 200, height: 50, callback: pageRoute),
+              GenericButton(bText: "Connect", width: 200, height: 50, callback: pageRoute),
             ],
           ),
         ),

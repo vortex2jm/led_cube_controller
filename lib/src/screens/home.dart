@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/button.dart';
-import 'package:led_cube_controller/src/components/colors.dart';
-import 'package:led_cube_controller/src/pages/connect.dart';
+import 'package:led_cube_controller/src/widgets/button.dart';
+import 'package:led_cube_controller/src/widgets/colors.dart';
+import 'package:led_cube_controller/src/screens/connect.dart';
 
 // ====================================================== //
 class Home extends StatefulWidget {
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Image(image: AssetImage("lib/src/assets/cube.png")),
-          ConnectButton(bText: 'Start', width: 200, height: 50, callback: pageRoute)
+          GenericButton(bText: 'Start', width: 200, height: 50, callback: pageRoute)
         ],
         )
       )

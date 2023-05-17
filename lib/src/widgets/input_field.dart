@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/colors.dart';
+import 'package:led_cube_controller/src/widgets/colors.dart';
 
 //Component===============================================//
 class InputField extends StatefulWidget {  

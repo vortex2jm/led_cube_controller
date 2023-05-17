@@ -1,15 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/colors.dart';
+import 'package:led_cube_controller/src/widgets/colors.dart';
 
 // ================================================== //
-class ConnectButton extends StatelessWidget {
+class GenericButton extends StatelessWidget {
   
   final String bText;
   final double width, height;
   final Function callback;
   
-  ConnectButton({
+  GenericButton({
     super.key,
     required this.bText,
     required this.width,
