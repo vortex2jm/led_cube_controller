@@ -7,6 +7,7 @@ import 'package:led_cube_controller/src/widgets/button.dart';
 import 'package:led_cube_controller/src/widgets/failure.dart';
 import 'package:led_cube_controller/src/widgets/loading.dart';
 
+// Class============================//
 class Effects extends StatefulWidget{
 
   final String  ipState;
@@ -21,6 +22,7 @@ class Effects extends StatefulWidget{
 class _EffectsState extends State<Effects> {
 
   late final ConnectBloc _connectBloc;
+  final example = ConnectNode.getEffects();
 
   @override
   void initState() {
@@ -47,26 +49,20 @@ class _EffectsState extends State<Effects> {
         return Scaffold(
           body: Center(
             child: SizedBox(
-              height: 10000,
-              child: 
-                ListView(
-                  padding: const EdgeInsets.all(50.0),
-                  children: <Widget>[
-                    GenericButton(bText: "Propeller", width: 400, height: 100, callback: ConnectNode.propeller),
-                    const SizedBox(height: 20),
-                    GenericButton(bText: "Random", width: 400, height: 100, callback: ConnectNode.random),
-                    const SizedBox(height: 20),
-                    GenericButton(bText: "PET", width: 400, height: 100, callback: ConnectNode.pet),
-                    const SizedBox(height: 20),
-                    GenericButton(bText: "Rain", width: 400, height: 100, callback: ConnectNode.pet),
-                    const SizedBox(height: 20),
-                    GenericButton(bText: "Sequencial", width: 400, height: 100, callback: ConnectNode.pet),
-                    const SizedBox(height: 20),
-                    GenericButton(bText: "Layer", width: 400, height: 100, callback: ConnectNode.pet),
-                    const SizedBox(height: 20),
-                    GenericButton(bText: "Column", width: 400, height: 100, callback: ConnectNode.pet)
-                  ],                
-                ),              
+              child:
+              ListView.builder(
+                padding: const EdgeInsets.all(100),
+                itemCount: example.length,
+                itemBuilder: (context, index){
+                  final item = example[index];
+                  return Column(
+                    children: [
+                      GenericButton(bText: item['name'], width: 400, height: 100, callback: (){print("calling function");}),
+                      const SizedBox(height: 20)
+                    ],
+                  ); 
+                }
+              )             
             ) 
           ),
         );
