@@ -1,5 +1,7 @@
 class ConnectNode {
 
+  // If response status is not 200, return false
+  // And application will fail
   bool testConnection(String ip){
     if(ip== "12345"){
       return true;
@@ -7,16 +9,11 @@ class ConnectNode {
     return false;
   }
 
-  static void propeller(){
-    print("propeller");
-  }
-
-  static void random(){
-    print("random");
-  }
-
-  static void pet(){
-    print("pet");
+  // Simulating api response with effects names
+  static List<dynamic>getEffects(){
+    return [
+      {'name': 'propeller', 'number':24},
+      {'name': 'random', 'number':25}
+    ];
   }
 }
-// Criar enum para efeitos
