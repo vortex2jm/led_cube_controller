@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/colors.dart';
-import 'package:led_cube_controller/src/pages/home.dart';
+import 'package:led_cube_controller/src/widgets/colors.dart';
+import 'package:led_cube_controller/src/screens/connect.dart';
+import 'package:led_cube_controller/src/screens/home.dart';
 
 main() {
   runApp(const MyApp());
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
+      routes: {
+        '/home' : (context) => Home(),
+        '/connect' : (context) => Connect(),
+      },
       theme: ThemeData(
         scaffoldBackgroundColor: ColorsPalette.primary,
         inputDecorationTheme: InputDecorationTheme(
