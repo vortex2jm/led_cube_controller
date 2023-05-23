@@ -24,6 +24,8 @@ class _EffectsState extends State<Effects> {
   late final ConnectBloc _connectBloc;
   final example = ConnectNode.getEffects();
 
+  // Put getNode here with right request
+
   @override
   void initState() {
     super.initState();
@@ -57,12 +59,12 @@ class _EffectsState extends State<Effects> {
                   final item = example[index];
                   return Column(
                     children: [
-                      GenericButton(bText: item['name'], width: 400, height: 100, callback: (){print("calling function");}),
+                      GenericButton(bText: item['name'], width: 400, height: 100, callback: ConnectNode.getNode),
                       const SizedBox(height: 20)
                     ],
                   ); 
                 }
-              )             
+              )
             ) 
           ),
         );
