@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ConnectNode {
@@ -13,25 +12,21 @@ class ConnectNode {
   }
 
   // Função para testar requisição
-  static Future<void> getNode() async {
-    var url = Uri.parse('https://api.github.com/users/vortex2jm');
-    var response = await http.get(url);
-
-    var resObject = jsonDecode(response.body);
-
-    if(response.statusCode == 200){
-      print(resObject['login']);
+  Future<List<String>> getEffects(String ip) async {
+    var url = Uri.parse('http://$ip/');
+    // var response = await http.get(url);
+    final client = http.Client();
+    try{
+      var response = await client.get(url).timeout(const Duration(seconds: 5));
+      var resObject = jsonDecode(response.body);
+      List<String> effectsList = [];
+      for(var effect in resObject["effects"]){
+        effectsList.add(effect["id"]);
+      }
+      // if(response.statusCode == 200){}
+      return effectsList;
+    }catch(err){
+      throw Exception();  
     }
-    else{
-      print("Erro na request");
-    }
-  }
-
-  // Simulating api response with effects names
-  static List<dynamic>getEffects(){
-    return [
-      {'name': 'propeller', 'number':24},
-      {'name': 'random', 'number':25}
-    ];
   }
 }
