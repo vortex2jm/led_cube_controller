@@ -1,6 +1,6 @@
 abstract class ConnectEvent{}
 
-class TestConnection extends ConnectEvent {
+class GetEffects extends ConnectEvent{
   final String ip;
-  TestConnection({required this.ip});
+  GetEffects({required this.ip});
 }
