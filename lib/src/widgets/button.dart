@@ -19,9 +19,9 @@ class GenericButton extends StatelessWidget {
 
   final ButtonStyle bStyle = ElevatedButton.styleFrom(
     backgroundColor: ColorsPalette.secondary, 
-    elevation: 1000, 
+    elevation: 20, 
     shadowColor: ColorsPalette.shadows, 
-    minimumSize: Size(50.0, 50.0)
+    minimumSize: Size(50.0, 50.0),
   );
 
   @override
@@ -38,7 +38,7 @@ class GenericButton extends StatelessWidget {
         child: Text(
           bText,
           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
-        )
+        ),
       )
     );
   }

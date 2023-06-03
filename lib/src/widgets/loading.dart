@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:led_cube_controller/src/widgets/colors.dart';
 
 class Loading extends StatelessWidget {
   const Loading({super.key});
@@ -7,7 +8,7 @@ class Loading extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: CircularProgressIndicator(color: ColorsPalette.secondary,),
       ),
     );
   }
