@@ -1,15 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
-import 'package:led_cube_controller/src/components/colors.dart';
+import 'package:led_cube_controller/src/widgets/colors.dart';
 
 // ================================================== //
-class ConnectButton extends StatelessWidget {
+class GenericButton extends StatelessWidget {
   
   final String bText;
   final double width, height;
   final Function callback;
   
-  ConnectButton({
+  GenericButton({
     super.key,
     required this.bText,
     required this.width,
@@ -19,9 +19,9 @@ class ConnectButton extends StatelessWidget {
 
   final ButtonStyle bStyle = ElevatedButton.styleFrom(
     backgroundColor: ColorsPalette.secondary, 
-    elevation: 1000, 
+    elevation: 20, 
     shadowColor: ColorsPalette.shadows, 
-    minimumSize: Size(50.0, 50.0)
+    minimumSize: Size(50.0, 50.0),
   );
 
   @override
@@ -38,7 +38,7 @@ class ConnectButton extends StatelessWidget {
         child: Text(
           bText,
           style: TextStyle(color: Theme.of(context).scaffoldBackgroundColor),
-        )
+        ),
       )
     );
   }
